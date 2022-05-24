@@ -1,0 +1,125 @@
+/*
+ca Using 1D Arrays
+@Thavi021
+
+ */
+package causing1darrays;
+
+import java.util.Scanner;
+
+public class CaUsing1DArrays {
+    
+    static int intCount;
+    static double dblSum, dblAvg;
+    
+    static int intHigh, intLow,intHIndex, intLIndex;
+    
+    static int[] intNumArr = new int[10];
+    static Scanner sc = new Scanner(System.in);
+//Using sqaure brackets to represent the size of the arrays
+
+    public static void main(String[] args) {
+        loadArray();
+        calcAvg();
+        printAvg();
+        printHighLow();
+    }
+    
+    public static void loadArray(){
+        
+       /* for(intCount = 0; intCount<= 9; intCount++){
+            System.out.println("Please enter a value for cell [" + intCount + "):");  // This is okay but it is not informative enough for the user, you ca specify by telling the user which cell they are entering for. hene add the intCount
+            intNumArr[intCount] = sc.nextInt(); 
+*/
+       for(intCount = 0; intCount<= 9; intCount++){
+           intNumArr[intCount] = (int)(Math.random() *10);   //generatung a random number
+       
+       
+//working out the sum and average seperately instead of reading, calculating, incrementing and etc. together
+//saving things forthe entire program instead of just a section of the program
+        }
+        
+
+    }
+    public static void calcAvg(){
+        dblSum = 0;
+        for(intCount= 0; intCount <=9; intCount++){
+            dblSum = dblSum + intNumArr[intCount];
+            
+        }
+        dblAvg = dblSum / intCount;   
+// we have [10] spaces but we are counting from 0-9 so would this be correcr???? ==== yes because it still uses the same amoun of spaces
+//hence we can just use intCount but if wanted or needed you can also ask the user what you want to divide it by <<as of now thisis unneccesary>>
+    
+    }
+    
+    public static void printAvg(){
+        for(intCount = 0; intCount<= 9; intCount++){
+            System.out.println("Cell[" + intCount + "]- " +  intNumArr[intCount]);
+        }
+        
+        System.out.println("The average is: " + dblAvg);   
+       
+    }
+
+    private static void printHighLow() {
+       /*
+        intHigh =-1;
+        intLow = 11;     // this can be 11 because we only go up to single digit numbers
+        
+        intHIndex = -1;
+        intLIndex = -1;
+        
+        for(intCount = 0; intCount<= 9; intCount++){
+            if (intNumArr[intCount] > intHigh){
+                intHigh = intNumArr[intCount];
+               intHIndex = intCount; 
+            
+            }
+        for(intCount = 0; intCount<= 9; intCount++){
+            if (intNumArr[intCount] > intLow){
+                intLow = intNumArr[intCount];
+               intLIndex = intCount; 
+            }
+    
+
+        }
+        }
+*/
+       
+       //High Low 2.0
+       
+        intHigh = intNumArr[0];     //if you state that your high and low is your firat cell then you can make your program more effiecient 
+        intLow = intNumArr[0];    
+        
+        //if high and low are the same and the first cell then 
+        
+        intHIndex = -1;
+        intLIndex = -1;
+        
+        for(intCount = 1; intCount<= 9; intCount++){    //hence being able to make the min count value to 1
+            if (intNumArr[intCount] > intHigh){
+                intHigh = intNumArr[intCount];
+               intHIndex = intCount; 
+            }
+        for(intCount = 0; intCount<= 9; intCount++){
+            if (intNumArr[intCount] < intLow){
+                intLow = intNumArr[intCount];
+               intLIndex = intCount; 
+            }
+        }
+        }
+        
+        System.out.println("The highest number is: " + intHigh + " at index " + intHIndex);
+        System.out.println("The highest number is: " + intLow + " at index " + intLIndex);
+       
+    }   
+}
+
+
+
+//inntializing must happen before the loop starts and you finish the calculation outside the loop
+
+
+
+
